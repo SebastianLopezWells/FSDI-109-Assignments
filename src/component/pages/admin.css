@@ -1,0 +1,23 @@
+.admin{
+    background-color: #dedede;
+}
+.parent{
+    
+    width: fit-content;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+}
+
+.parent .products{
+    margin-right: 200px;
+}
+
+.products .my-form{
+    margin: 20px;
+    margin-left: 0;
+}
+
+.products .my-form label{
+    margin-right: 20px;
+}

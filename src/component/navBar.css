@@ -1,0 +1,30 @@
+.btn.btn-outline-success{
+    border-color: white;
+    color: white;
+}
+
+.btn.btn-outline-success:hover{
+    background-color: white;
+    color: black;
+}
+
+li .nav-link{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    color: white;
+}
+
+li .nav-link:hover{
+    color:#bcbcbc;
+}
+
+#Cart{
+    border-color: white;
+    font-size: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#Cart:hover{
+    background-color: white;
+    color: black;
+}
