@@ -6,7 +6,7 @@ const Admin = () => {
   const [coupon, setCoupon] = useState({});
   const [showProdSuccess, setShowProdSuccess] = useState(false);
 
-  const saveProduct = () => {
+  const saveProduct = async () => {
     console.log("Saving product...");
     console.log(product);
 
@@ -14,7 +14,7 @@ const Admin = () => {
     fixProd.price = parseFloat(fixProd.price);
     //use the service to send it to server
     let service = new DataService();
-    let savedProduct = service.saveProduct(product);
+    let savedProduct = await service.saveProduct(fixProd);
 
     if (savedProduct && savedProduct._id) {
       setShowProdSuccess(true);

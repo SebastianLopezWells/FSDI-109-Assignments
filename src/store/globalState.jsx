@@ -6,23 +6,26 @@ const GlobalState = (props) => {
   const [user, setUser] = useState([]);
 
   const addToCart = (prod) => {
+    console.log("Adding to cart", prod);
     // add product to cart
     // create a copy, mod copy, set the copy
-
+    console.log("SOMETHING", prod);
     let copy = [...cart];
 
     let exist = false;
-
-    for (let i = 0; i < copy.length; i++) {
-      if (copy[i]._id === prod._id) {
+    for (let i = 0; i < cart.length; i++) {
+      let item = cart[i];
+      if (item._id === prod._id) {
         exist = true;
-      }
-      else {
-        copy.push(prod);
-        setCart(copy);
+        item.quantity += prod.quantity;
       }
     }
-    
+
+    if (!exist) {
+      copy.push(prod);
+    }
+
+    setCart(copy);
   };
   const removeFromCart = () => {};
 

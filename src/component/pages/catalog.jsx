@@ -10,6 +10,7 @@ const Catalog = () => {
     let service = new DataService(); //Instance of a class
     let prods = await service.getCatalog();
     setProducts(prods);
+    console.log(prods);
     let uniques = [];
     for (let i = 0; i < prods.length; i++) {
       let prod = prods[i];
@@ -24,6 +25,7 @@ const Catalog = () => {
   }, []);
 
   const Filter = () => {};
+
   return (
     <div className="catalog">
       <h1>Our Catalog</h1>
@@ -36,7 +38,7 @@ const Catalog = () => {
       </div>
       <div className="product-list">
         {products.map((prod) => (
-          <Item data={prod}></Item>
+          <Item key={prod._id} data={prod}></Item>
         ))}
       </div>
     </div>

@@ -7,15 +7,14 @@ import StoreContext from "../store/storeContext";
 const NavBar = () => {
   const cart = useContext(StoreContext).cart;
   const getNumItems = () => {
-    let sum = 0;
+    let total = 0;
+
     //Count the number of products in cart array
     for (let i = 0; i < cart.length; i++) {
-      let prod = cart[i];
-      sum += prod.quantity;
+      total += cart[i].quantity;
     }
-    return sum;
+    return total;
   };
-  let sum = getNumItems();
 
   return (
     <div>
@@ -23,7 +22,7 @@ const NavBar = () => {
         <div className="container-fluid">
           <ul className="nav">
             <li className="nav-item">
-              <Link className="nav-link active" to="/">
+              <Link className="nav-link active" to="/home">
                 Home
               </Link>
             </li>
@@ -38,18 +37,18 @@ const NavBar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/About">
+              <Link className="nav-link" to="/about-me">
                 About Me
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Admin">
+              <Link className="nav-link" to="/admin">
                 Admin
               </Link>
             </li>
           </ul>
 
-          <Link className="btn btn-dark" to="/Cart" id="Cart">
+          <Link className="btn btn-dark" to="/cart" id="Cart">
             {getNumItems()} &nbsp;View Cart
           </Link>
         </div>

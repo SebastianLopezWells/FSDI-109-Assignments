@@ -3,16 +3,17 @@ import QuantityPicker from "./quantityPicker";
 import { useState, useContext } from "react";
 import StoreContext from "../store/storeContext";
 const Item = (props) => {
-  const [quantity, setQuantity] = useState(1);
-  const addToCart = useContext(StoreContext).addToCart;
+  const [quantity, setQuantity] = useState(0);
+  const product = useContext(StoreContext).addToCart;
 
-  const handleAddClick = () => {
+  const AddToCart = () => {
     //creat a copy of the object props.dta
     let prodForCart = { ...props.data, quantity: quantity };
     //add quantity to the copy
     //send copy to cart
 
-    addToCart(prodForCart);
+    product(prodForCart);
+    console.log(product);
   };
   const onQuantityChange = (quantity) => {
     console.log("quantity changed", quantity);
@@ -32,11 +33,7 @@ const Item = (props) => {
       <div>
         <label>Total: ${(props.data.price * quantity).toFixed(2)}</label>
 
-        <button
-          id="addButton"
-          className="btn btn-success"
-          onClick={handleAddClick}
-        >
+        <button id="addButton" className="btn btn-success" onClick={AddToCart}>
           Add to cart
         </button>
       </div>
